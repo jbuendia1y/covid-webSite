@@ -1,0 +1,47 @@
+<%- include('../partials/head.ejs') %>
+
+    <div class="container mt-5">
+            <canvas id="chartCountry" width="800" height="400"></canvas>
+        <div class="row justify-content-center mt-5">
+            <div class="col-11 col-sm-10">
+                <div class="card d-block d-md-flex flex-row-reverse align-items-center">
+                    <img src="<%= data.countryInfo.flag %>" class="img-sm-fluid m-0 m-md-2 me-auto ms-auto flag-width" alt="flag-<%= data.country %>">
+                    <div class="card-body">
+                        <h2 class="card-title">
+                            <%= data.country %>
+                        </h2>
+                        <div class="card-text m-0">
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th scope="col"></th>
+                                        <th scope="col">Cases</th>
+                                        <th scope="col">Deaths</th>
+                                        <th scope="col">Recovereds</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">All</th>
+                                        <td><%= data.cases %></td>
+                                        <td><%= data.deaths %></td>
+                                        <td><%= data.recovered %></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Today</th>
+                                        <td><%= data.todayCases %></td>
+                                        <td><%= data.todayDeaths%></td>
+                                        <td><%= data.todayRecovered %></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="/static/js/totalCasesChart.js"></script>
+    <script src="/static/js/countryStatistics.js"></script>
+<%- include('../partials/footer.ejs') %>
