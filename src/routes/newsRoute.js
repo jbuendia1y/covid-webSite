@@ -16,7 +16,7 @@ router.get('/news',async (req,res)=>{
     }) .then(res => res.json())
         .then(data => data.articles)
 
-    res.render('news.ejs',{name : 'NEWS | Covid-19 WebSite',data: data})
+    res.render('news.ejs',{name : 'NEWS | Covid-19 WebSite',data})
 })
 
 module.exports = router
