@@ -5,7 +5,13 @@
         <% for(const article of data){ %>
             <div class="row justify-content-center mt-3 mb-3">
                 <div class="col-10 col-sm-6 card p-0">
-                    <img src="<%= article.media %>" alt="img-of-article" class="card-img-top news-img">
+                    <% if(article.media || article.media_content){ %>
+                        <% if(article.media){ %>
+                            <img src="<%= article.media %>" alt="img-of-article" class="card-img-top news-img">
+                        <% }else if(article.media == null && article.media_content){ %>
+                            <img src="<%= article.media_content %>" alt="img-of-article" class="card-img-top news-img">
+                        <% } %>
+                    <% } %>
                     <div class="card-body">
                         <h2 class="card-title">
                             <%= article.title %>
@@ -20,11 +26,8 @@
                                 <a href="<%= article.link %>" target="_blank" class="btn btn-primary">Original Article</a>
                             </div>
                             <p class="col-6 text-end m-0">
-                                <% if(article.author == null || article.author == 'none' || article.author == ""){ %>
-                                    <% article.author = 'none' %>
-                                <% } %>
-                                <span>Author : <%= article.author %></span>
-                                <span class="d-block">Rights : <%= article.rights %></span>
+                                <span>Author : <%= article.author ? article.author : 'None' %></span>
+                                <span class="d-block">Rights : <%= article.rights ? article.rights : 'None' %></span>
                             </p>
                         </div>
                     </div>
