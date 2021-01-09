@@ -3,7 +3,7 @@ const router = express.Router()
 
 const fetch = require('node-fetch')
 
-router.get('/statistics',async(req,res)=>{
+router.get('/statistics',(req,res)=>{
     res.render('statistics.ejs',{name: "Statistics | Covid-19 WebSite",err : false})
 })
 
